@@ -1,0 +1,37 @@
+body {
+    background-color: #000000;
+    font-family: 'Courier New', Courier, monospace;
+    color: #00FF7F;
+    text-shadow: 2px 2px 5px #00FF7F;
+    padding-top: 25px;
+}
+
+.container {
+    text-align: center;
+}
+
+h1,h2,h3,
+h4,h5,h6 {
+    padding: 10px;
+}
+
+#pressKeyTryAgain,
+#lose-img,
+#win-img {
+    display: none;
+    margin: auto;
+}
+
+#currentWord {
+    letter-spacing: 10px;
+}
+
+.gameplay-column {
+    padding-top: 20px;
+    border: 1px solid #00FF7F;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    min-height: 500px;
+    background-color: #000000;
+}

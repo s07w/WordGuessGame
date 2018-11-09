@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hangman: Radical Edition!</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script src="assets/javascript/game.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <div class="container">
+        <img id="title-image" src="assets/images/hm-title.png" alt="Title Image"/>
+        <div class="row">
+            <div class="col-md-6 gameplay-column">
+                <img id="win-img" src="assets/images/win-img.png" alt="Win Image"/>
+                <img id="lose-img" src="assets/images/lose-img.png" alt="Losing Image"/>
+                <h2 id="tryAgain">Press any key to try again!</h2>
+                <img id="hangmanImg" src="" alt="" />
+            </div>
+            <div class="col-md-6 gameplay-column">
+                <h2>Press any alpha/numerical key to make a guess and begin</h2>
+                <h4>Wins</h4>
+                <h5 id="totalWins"></h5>
+                <h4>Current Word</h4>
+                <h3 id="currentWord"></h3>
+                <h4>Guesses Left</h4>
+                <h6 id="guessesLeft"></h6>
+                <h4>Letters Guessed</h4>
+                <h3 id="guessedLetters"></h3>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    reset();
+    updateDisplay();
+      </script>
+
+
+</body>
