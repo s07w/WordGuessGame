@@ -147,3 +147,5 @@ function checkLoss() {
     document.getElementById("tryagain").style.cssText = "display: block";
     gameOver = true;
 };
+
+
