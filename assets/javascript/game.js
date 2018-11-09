@@ -65,50 +65,12 @@ function updateDisplay() {
     document.getElementById("currentWord").innerText = guessingWordText;
     document.getElementById("guessesLeft").innerText = guessesLeft;
     document.getElementById("guessedLetters").innerText = guessedLetters;
-    
-    //depending on guesses, updates image
-    if (guessesLeft <= 0) {
-        document.getElementById("lose-img").style.cssText = "display:block";
-        document.getElementById("win-img").style.cssText = "display:block";
-        gameOver = true;
-    }
-
 };
 
 //updates hangman-img based on guess result. thanks d orlovsky for this method
     function updateHangmanImg() {
         document.getElementById("hangmanImg").src = "assets/images/" + (maxGuesses - guessesLeft) + ".png";
     };
-
-// key event. uses 48-90 so user can only guess alphanumeric event keycodes
-// included the top row of numbers for the super secret mystery "word"
-document.onkeyup = function(event) {
-    if(gameOver) {
-        reset();
-        gameOver = false;
-    } else {
-        if(event.keyCode >= 48 && event.keyCode <= 90) {
-            makeGuess(event.key.toLowerCase());
-        }
-    }
-};
-
-// when user presses key for guess, returns this:
-function makeGuess (letter) {
-    if (guessesLeft > 0) {
-        if (!gameStart) {
-            gameStart = true;
-        }
-
-        if(guessedLetters.indexOf(letter) === -1) {
-            guessedLetters.push(letter);
-            evaluateGuess(letter);
-        }
-    }
-
-    updateDisplay();
-    checkWin();
-}
 
 // take letter from array, check index for all instances of it
 // and replace "_" with the letter. 
@@ -142,10 +104,39 @@ function checkWin() {
 };
 
 function checkLoss() {
-    if(guessesLeft <= 0)
+    if(guessesLeft <= 0) {
     document.getElementById("lose-img").style.cssText = "display: block";
-    document.getElementById("tryagain").style.cssText = "display: block";
+    document.getElementById("tryAgain").style.cssText = "display: block";
     gameOver = true;
+    }
 };
 
+// when user presses key for guess, returns this:
+function makeGuess (letter) {
+    if (guessesLeft > 0) {
+        if (!gameStart) {
+            gameStart = true;
+        }
 
+        if(guessedLetters.indexOf(letter) === -1) {
+            guessedLetters.push(letter);
+            evaluateGuess(letter);
+        }
+    }
+}
+
+// key event. uses 48-90 so user can only guess alphanumeric event keycodes
+// included the top row of numbers for the super secret mystery "word"
+document.onkeyup = function(event) {
+    if(gameOver) {
+        reset();
+        gameOver = false;
+    } else {
+        if(event.keyCode >= 48 && event.keyCode <= 90) {
+            makeGuess(event.key.toLowerCase());
+            updateDisplay();
+            checkWin();
+            checkLoss();
+        }
+    }
+};
